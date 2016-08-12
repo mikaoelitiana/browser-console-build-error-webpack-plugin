@@ -1,6 +1,7 @@
 'use strict';
 
 var path = require('path');
+var stripAnsi = require('strip-ansi');
 
 var BrowserConsoleBuildErrorPlugin = function() {};
 
@@ -10,7 +11,7 @@ BrowserConsoleBuildErrorPlugin.prototype.apply = function(compiler) {
             var outputFileSystem = compiler.outputFileSystem;
             var outputOptions = compiler.options.output;
             var main = path.join(outputOptions.path, outputOptions.filename);
-            var errors = stats.toString({
+            var errors = stripAnsi(stats.toString({
                 hash: false,
                 version: false,
                 timings: false,
@@ -26,8 +27,9 @@ BrowserConsoleBuildErrorPlugin.prototype.apply = function(compiler) {
                 modulesSort: false,
                 chunksSort: false,
                 assetsSort: false
-            }).replace(/\n/g, '\\n');
-            outputFileSystem.writeFile(main, 'throw new Error(\'' + errors + '\')');
+            }).replace(/\n/g, '\\n'));
+            var contents = outputFileSystem.readFileSync(main);
+            outputFileSystem.writeFile(main, contents + "\n\n" + 'console.warn(\'WEBPACK BUILD OUTPUT\', \'' + errors + '\')', 'utf-8', function(){});
         }
     });
 };

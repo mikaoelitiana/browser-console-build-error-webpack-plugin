@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/richardscarrott/browser-console-build-error-webpack-plugin.git"
+    "url": "https://github.com/mikaoelitiana/browser-console-build-error-webpack-plugin.git"
   },
   "keywords": [
     "Webpack",
@@ -17,13 +17,14 @@
     "Build",
     "Error"
   ],
-  "author": "Richard Scarrott <riscarrott@googlemail.com>",
+  "author": "Mika A. <mikaoelitiana@gmail.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/richardscarrott/browser-console-build-error-webpack-plugin/issues"
+    "url": "https://github.com/mikaoelitiana/browser-console-build-error-webpack-plugin/issues"
   },
-  "homepage": "https://github.com/richardscarrott/browser-console-build-error-webpack-plugin",
+  "homepage": "https://github.com/mikaoelitiana/browser-console-build-error-webpack-plugin",
   "dependencies": {
+    "strip-ansi": "^3.0.1",
     "webpack": "^1.5.3"
   }
 }

@@ -1,5 +1,5 @@
 # browser-console-build-error-webpack-plugin
-Outputs webpack build errors in the browser console.
+Outputs webpack build errors in the browser console as warning.
 
 ## Usage
 
